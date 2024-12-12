@@ -1,6 +1,6 @@
-# VisualmetricsCarbonator
+# Carbonator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.0.
 
 ## Development server
 
@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## How It Works
+
+Carbonator uses a basic set of equations to model the climate system's evolution over time. By simplifying the complex interactions found in full-scale climate models, it provides meaningful insights into key global trends without the computational overhead.
