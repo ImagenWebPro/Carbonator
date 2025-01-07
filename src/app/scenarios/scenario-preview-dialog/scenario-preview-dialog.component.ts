@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';  // Correct import for Angular 9
 import { ScenariosService } from '../../shared/services/scenarios.service';
 import { Scenario } from '../../shared/model/scenario.model';
 import { Router } from '@angular/router';

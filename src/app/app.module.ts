@@ -8,13 +8,28 @@ import { AppComponent } from './app.component';
 
 import { AppMaterialModule } from './app-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatSidenavModule, MatIconModule, MatListModule, MatGridListModule } from '@angular/material';
-import { MatToolbarModule, MatCardModule, MatButtonModule, MatTooltipModule } from '@angular/material';
-import { MatDialogModule, MatSlideToggleModule, MatButtonToggleModule, MatProgressBarModule } from '@angular/material';
-import { MatTabsModule, MatExpansionModule, MatFormFieldModule, MatInputModule } from '@angular/material';
-import { HomeComponent } from './core/home/home.component';
+
+// Import Angular Material modules individually
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './core/home/home.component';
 import { ExplainedComponent } from './pages/explained/explained.component';
 import { FaqsComponent } from './pages/faqs/faqs.component';
 import { TeamComponent } from './pages/team/team.component';

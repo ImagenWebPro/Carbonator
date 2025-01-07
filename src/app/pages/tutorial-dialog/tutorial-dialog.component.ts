@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';  // Correct import for Angular 9
 
 @Component({
   selector: 'app-tutorial-dialog',
@@ -14,7 +14,7 @@ export class TutorialDialogComponent implements OnInit {
   }
 
   close() {
-    this.dialogRef.close();
+    this.dialogRef.close();  // Close the dialog
   }
 
 }

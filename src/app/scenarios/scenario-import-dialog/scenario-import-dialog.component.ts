@@ -1,19 +1,20 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AppConfigService } from '../../shared/services/app-config.service';
-import { Observable } from 'rxjs/index';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { Observable } from 'rxjs';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';  // Corrected import path
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { FileValidator } from 'ngx-material-file-input';
 import { Papa } from 'ngx-papaparse';
 import { ScenariosService } from '../../shared/services/scenarios.service';
 import { Router } from '@angular/router';
 
+// Validator to check file type
 export function scenarioImportFileTypeValidator(type): ValidatorFn {
-  return (control: AbstractControl): {[key: string]: any} | null => {
+  return (control: AbstractControl): { [key: string]: any } | null => {
     if (control.value !== null && typeof control.value.files !== 'undefined' && typeof control.value.files[0] !== 'undefined') {
       return (control.value.files[0].type === type)
         ? null
-        : {'fileType': {value: control.value.files[0].type}};
+        : { 'fileType': { value: control.value.files[0].type } };
     }
     return null;
   };
@@ -41,22 +42,25 @@ export class ScenarioImportDialogComponent implements OnInit {
   ngOnInit() {
     this.readOnly$ = this.appConfig.readOnly$;
 
+    // Initialize the form group with validation
     this.importForm = this.formBuilder.group({
       requiredfile: [
         undefined,
         [
           Validators.required,
-          scenarioImportFileTypeValidator('text/csv')
+          scenarioImportFileTypeValidator('text/csv')  // Custom file type validator
         ]
       ]
     });
   }
 
+  // On form submit, parse the file
   onSubmitImportForm() {
-    if (this.importForm.invalid) return;
+    if (this.importForm.invalid) return;  // Exit if form is invalid
     this.parse(this.importForm.value.requiredfile.files[0]);
   }
 
+  // Parse the CSV file
   parse(file: File): void {
     const reader: FileReader = new FileReader();
     reader.readAsText(file);
@@ -72,7 +76,7 @@ export class ScenarioImportDialogComponent implements OnInit {
               alert(importResult.error);
               this.importForm.reset();
             } else if (importResult && importResult.scenario) {
-              this.router.navigate(['/scenario', importResult.scenario.id]);
+              this.router.navigate(['/scenario', importResult.scenario.id]);  // Navigate to the imported scenario
               this.close();
             }
           }
@@ -83,10 +87,9 @@ export class ScenarioImportDialogComponent implements OnInit {
     };
   }
 
-
+  // Close the dialog and reset the form
   close() {
     this.importForm.reset();
     this.dialogRef.close();
   }
-
 }

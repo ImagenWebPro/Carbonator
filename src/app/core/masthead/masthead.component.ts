@@ -1,10 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';  // Update the import path
 import { ShareDialogComponent } from '../../pages/share-dialog/share-dialog.component';
 import { TutorialDialogComponent } from '../../pages/tutorial-dialog/tutorial-dialog.component';
 import { AdvancedDialogComponent } from '../../pages/advanced-dialog/advanced-dialog.component';
 import { AppConfigService } from '../../shared/services/app-config.service';
-import { Observable } from 'rxjs/index';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-masthead',
@@ -28,16 +28,11 @@ export class MastheadComponent implements OnInit {
   }
 
   openShareDialog() {
-
     const dialogConfig = new MatDialogConfig();
-
     dialogConfig.autoFocus = false;
     dialogConfig.maxWidth = 450;
-    dialogConfig.position = {'top': '250px'};
-
-    dialogConfig.data = {
-      message: 'Sharing buttons and instructions'
-    };
+    dialogConfig.position = { 'top': '250px' };
+    dialogConfig.data = { message: 'Sharing buttons and instructions' };
 
     const dialogRef = this.dialog.open(ShareDialogComponent, dialogConfig);
 
@@ -47,26 +42,19 @@ export class MastheadComponent implements OnInit {
   }
 
   openTutorialDialog() {
-
     const dialogConfig = new MatDialogConfig();
-
     dialogConfig.autoFocus = false;
     dialogConfig.maxWidth = 450;
-    dialogConfig.position = {'top': '250px'};
-
+    dialogConfig.position = { 'top': '250px' };
     this.dialog.open(TutorialDialogComponent, dialogConfig);
   }
 
   openAdvancedDialog() {
-
     const dialogConfig = new MatDialogConfig();
-
     dialogConfig.autoFocus = true;
     dialogConfig.maxWidth = 450;
-    dialogConfig.position = {'top': '250px'};
+    dialogConfig.position = { 'top': '250px' };
     dialogConfig.disableClose = true;
-
     this.dialog.open(AdvancedDialogComponent, dialogConfig);
   }
-
 }

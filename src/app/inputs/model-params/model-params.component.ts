@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';  // Update import path
 import { ModelParamsDialogComponent } from '../model-params-dialog/model-params-dialog.component';
-import { Observable } from 'rxjs/index';
+import { Observable } from 'rxjs';  // Update rxjs import
 import { AppConfigService } from '../../shared/services/app-config.service';
 import { ModelParamsEditorDialogComponent } from '../model-params-editor-dialog/model-params-editor-dialog.component';
 
@@ -23,7 +23,7 @@ export class ModelParamsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    // Add any initialization logic here
   }
 
   ngOnChanges() {
@@ -40,7 +40,6 @@ export class ModelParamsComponent implements OnInit {
   }
 
   openParamsDialog() {
-
     const dialogConfig = new MatDialogConfig();
 
     this.data = this.simulation.constants;
@@ -53,7 +52,6 @@ export class ModelParamsComponent implements OnInit {
   }
 
   openParamsEditorDialog() {
-
     const dialogConfig = new MatDialogConfig();
 
     this.data = this.simulation.constants;
